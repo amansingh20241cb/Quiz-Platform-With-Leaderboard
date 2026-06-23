@@ -1,96 +1,95 @@
-# DIGITAL JOURNAL APP DOCUMENTATION
+# QUIZ PLATFORM WITH LEADERBOARD DOCUMENTATION
 
 ## INTERN DETAILS
 
-- INTERN ID: CITS2163
-- FULL NAME: Aman Kumar Singh
-- NO. OF WEEKS: 4 Weeks
-- PROJECT NAME: Digital Journal App
+* INTERN ID: CITS2163
+* FULL NAME: Aman Kumar Singh
+* NO. OF WEEKS: 4 Weeks
+* PROJECT NAME: Quiz Platform With Leaderboard
 
 ---
 
 # 1. INTRODUCTION
 
-The Digital Journal App is a web-based application that allows users to create, manage, edit, search, and delete personal journal entries. The application provides a simple and user-friendly interface for maintaining daily notes and records.
+The Quiz Platform With Leaderboard is a web-based application that allows users to participate in quizzes, answer multiple-choice questions, calculate scores automatically, and view their rankings on a leaderboard.
 
-The project uses HTML, CSS, and JavaScript, with Local Storage for data persistence.
+The application is developed using HTML, CSS, and JavaScript. It provides an interactive learning environment and stores leaderboard data using browser Local Storage.
 
 ---
 
 # 2. OBJECTIVE
 
-The primary objectives of this project are:
+The objectives of this project are:
 
-- To provide a digital platform for maintaining journal entries.
-- To allow users to save personal notes securely.
-- To enable searching, editing, and deleting notes.
-- To store data using browser Local Storage.
-- To create a responsive and easy-to-use user interface.
+* To conduct online quizzes.
+* To calculate user scores automatically.
+* To display rankings through a leaderboard system.
+* To store quiz results using Local Storage.
+* To provide an engaging and user-friendly learning experience.
 
 ---
 
 # 3. TECHNOLOGIES USED
 
-## Frontend
+## Frontend Technologies
 
-- HTML5
-- CSS3
-- JavaScript (ES6)
+* HTML5
+* CSS3
+* JavaScript (ES6)
 
-## Storage
+## Storage Technology
 
-- Browser Local Storage
-
----
-
-# 4. PROJECT FEATURES
-
-### Create Journal Entries
-
-Users can write and save journal entries.
-
-### Edit Entries
-
-Previously saved entries can be modified.
-
-### Delete Entries
-
-Users can remove unwanted journal entries.
-
-### Search Notes
-
-Users can search notes instantly using keywords.
-
-### Local Storage Support
-
-All journal entries are stored in the browser and remain available after page refresh.
-
-### Responsive Design
-
-The application works properly on desktops, tablets, and mobile devices.
+* Browser Local Storage
 
 ---
 
-# 5. SYSTEM REQUIREMENTS
+# 4. SYSTEM REQUIREMENTS
 
 ## Hardware Requirements
 
-- Computer or Laptop
-- Mobile Device (Optional)
+* Computer or Laptop
+* Smartphone (Optional)
 
 ## Software Requirements
 
-- Modern Web Browser
-  - Google Chrome
-  - Microsoft Edge
-  - Mozilla Firefox
-  - Safari
+* Google Chrome
+* Mozilla Firefox
+* Microsoft Edge
+* Safari
+
+---
+
+# 5. PROJECT FEATURES
+
+### User Registration
+
+Users enter their name before starting the quiz.
+
+### Quiz Questions
+
+The system displays multiple-choice questions one by one.
+
+### Score Calculation
+
+Scores are calculated automatically based on correct answers.
+
+### Leaderboard System
+
+The leaderboard displays rankings according to user scores.
+
+### Local Storage Support
+
+Quiz scores are stored in browser Local Storage.
+
+### Responsive Design
+
+The application works smoothly on desktop, tablet, and mobile devices.
 
 ---
 
 # 6. PROJECT STRUCTURE
 
-Digital-Journal-App/
+Quiz-Platform-With-Leaderboard/
 
 ├── index.html
 
@@ -118,98 +117,128 @@ Digital-Journal-App/
 
 ### Step 1
 
-User opens the application.
+The user opens the application.
 
 ### Step 2
 
-User writes a journal entry in the text area.
+The user enters their name.
 
 ### Step 3
 
-User clicks the Save Note button.
+The quiz begins after clicking the Start Quiz button.
 
 ### Step 4
 
-The note is stored in Local Storage.
+Questions are displayed one by one.
 
 ### Step 5
 
-Saved notes are displayed on the screen.
+The user selects answers and proceeds to the next question.
 
 ### Step 6
 
-Users can search, edit, or delete notes at any time.
+The application calculates the final score.
+
+### Step 7
+
+The score is stored in Local Storage.
+
+### Step 8
+
+The leaderboard is updated and displayed.
 
 ---
 
 # 8. MODULES
 
-## Journal Module
+## User Module
 
-Responsible for creating and displaying notes.
+Handles player name input and quiz initialization.
 
-## Search Module
+## Quiz Module
 
-Allows users to find notes quickly.
+Displays questions and answer options.
 
-## Edit Module
+## Score Module
 
-Enables modification of existing notes.
+Calculates and displays the final score.
 
-## Delete Module
+## Leaderboard Module
 
-Removes selected notes.
+Maintains and displays player rankings.
 
 ## Storage Module
 
-Handles saving and retrieving notes from Local Storage.
+Stores and retrieves leaderboard data using Local Storage.
 
 ---
 
-# 9. ADVANTAGES
-
-- Easy to use
-- Lightweight application
-- No database required
-- Fast performance
-- Responsive design
-- Data persistence through Local Storage
-
----
-
-# 10. FUTURE ENHANCEMENTS
-
-- User Authentication
-- Cloud Storage Integration
-- Dark Mode
-- Export Notes to PDF
-- Rich Text Formatting
-- Categories and Tags
-- Image Attachments
-
----
-
-# 11. TESTING
+# 9. TESTING
 
 The application was tested for:
 
-✓ Adding Notes
+✓ User Name Input
 
-✓ Editing Notes
+✓ Quiz Start Functionality
 
-✓ Deleting Notes
+✓ Question Display
 
-✓ Searching Notes
+✓ Answer Selection
+
+✓ Score Calculation
+
+✓ Leaderboard Display
 
 ✓ Local Storage Functionality
 
-✓ Responsive Layout
+✓ Responsive Design
 
 ---
 
-# 12. CONCLUSION
+# 10. ADVANTAGES
 
-The Digital Journal App successfully provides users with a simple and effective way to maintain personal journal entries. The project demonstrates the use of HTML, CSS, JavaScript, and Local Storage to create a practical and responsive web application.
+* Easy to use
+* Interactive learning experience
+* Automatic score calculation
+* Leaderboard ranking system
+* No external database required
+* Lightweight and fast performance
+
+---
+
+# 11. FUTURE ENHANCEMENTS
+
+* User Login and Registration
+* Online Database Integration
+* Category-Based Quizzes
+* Difficulty Levels
+* Timer-Based Questions
+* Certificate Generation
+* Multiplayer Quiz Mode
+* Admin Panel
+
+---
+
+# 12. PROJECT SCOPE
+
+The Quiz Platform can be used in:
+
+* Schools
+* Colleges
+* Training Institutes
+* Online Learning Platforms
+* Recruitment Tests
+* Competitive Exam Preparation
+
+This project can be extended into a complete online examination system.
+
+---
+
+# 13. CONCLUSION
+
+The Quiz Platform With Leaderboard successfully demonstrates quiz management, score calculation, leaderboard ranking, and Local Storage implementation using HTML, CSS, and JavaScript.
+
+The project provides a simple yet effective solution for conducting quizzes and evaluating user performance.
 
 ---
 
@@ -217,6 +246,6 @@ The Digital Journal App successfully provides users with a simple and effective 
 
 Aman Kumar Singh
 
-Intern ID: CITS2163
+INTERN ID: CITS2163
 
 CODTECH IT SOLUTIONS PVT. LTD.
