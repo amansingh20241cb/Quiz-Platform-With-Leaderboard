@@ -1,100 +1,222 @@
-// Load saved notes
-let notes = JSON.parse(localStorage.getItem("journalNotes")) || [];
+// Quiz Questions
 
-const noteInput = document.getElementById("noteInput");
-const notesContainer = document.getElementById("notesContainer");
-const search = document.getElementById("search");
+const quiz = [
 
-// Save notes to Local Storage
-function saveNotes(){
-localStorage.setItem("journalNotes",JSON.stringify(notes));
+{
+question:"What does HTML stand for?",
+options:[
+"Hyper Text Markup Language",
+"Home Tool Markup Language",
+"Hyperlinks Text Markup Language",
+"Hyper Tool Markup Language"
+],
+answer:"Hyper Text Markup Language"
+},
+
+{
+question:"Which language is used for styling web pages?",
+options:[
+"HTML",
+"CSS",
+"Java",
+"Python"
+],
+answer:"CSS"
+},
+
+{
+question:"Which language is used for interactivity on web pages?",
+options:[
+"C",
+"Java",
+"JavaScript",
+"PHP"
+],
+answer:"JavaScript"
+},
+
+{
+question:"Which company developed JavaScript?",
+options:[
+"Google",
+"Netscape",
+"Microsoft",
+"Apple"
+],
+answer:"Netscape"
+},
+
+{
+question:"Which HTML tag creates a hyperlink?",
+options:[
+"<a>",
+"<link>",
+"<url>",
+"<href>"
+],
+answer:"<a>"
 }
 
-// Display Notes
-function displayNotes(filteredNotes = notes){
+];
 
-notesContainer.innerHTML = "";
+let currentQuestion = 0;
+let score = 0;
+let selectedAnswer = "";
+let playerName = "";
 
-filteredNotes.forEach((note,index)=>{
+// Start Quiz
 
-const div = document.createElement("div");
+document.getElementById("startBtn")
+.addEventListener("click", function(){
 
-div.classList.add("note");
+playerName =
+document.getElementById("playerName").value;
 
-div.innerHTML = `
-<p>${note.text}</p>
-<div class="date">${note.date}</div>
-
-<button onclick="editNote(${index})">
-Edit
-</button>
-
-<button onclick="deleteNote(${index})">
-Delete
-</button>
-`;
-
-notesContainer.appendChild(div);
-
-});
-
-}
-
-// Add Note
-document.getElementById("addBtn").addEventListener("click",()=>{
-
-if(noteInput.value.trim()===""){
-alert("Please write something");
+if(playerName.trim() === ""){
+alert("Please enter your name");
 return;
 }
 
-notes.push({
-text:noteInput.value,
-date:new Date().toLocaleString()
-});
+document.getElementById("startScreen").style.display="none";
+document.getElementById("quizScreen").style.display="block";
 
-saveNotes();
-displayNotes();
-
-noteInput.value="";
+loadQuestion();
 
 });
 
-// Delete Note
-function deleteNote(index){
+// Load Question
 
-notes.splice(index,1);
+function loadQuestion(){
 
-saveNotes();
+const q = quiz[currentQuestion];
 
-displayNotes();
+document.getElementById("question").innerText =
+q.question;
+
+const optionsDiv =
+document.getElementById("options");
+
+optionsDiv.innerHTML = "";
+
+q.options.forEach(option => {
+
+const btn =
+document.createElement("button");
+
+btn.classList.add("option");
+
+btn.innerText = option;
+
+btn.addEventListener("click", function(){
+
+selectedAnswer = option;
+
+document
+.querySelectorAll(".option")
+.forEach(btn =>
+btn.classList.remove("selected"));
+
+this.classList.add("selected");
+
+});
+
+optionsDiv.appendChild(btn);
+
+});
 
 }
 
-// Edit Note
-function editNote(index){
+// Next Question
 
-noteInput.value=notes[index].text;
+document.getElementById("nextBtn")
+.addEventListener("click", function(){
 
-notes.splice(index,1);
+if(selectedAnswer === ""){
+alert("Please select an answer");
+return;
+}
 
-saveNotes();
+if(
+selectedAnswer ===
+quiz[currentQuestion].answer
+){
+score++;
+}
 
-displayNotes();
+selectedAnswer = "";
+
+currentQuestion++;
+
+if(currentQuestion < quiz.length){
+loadQuestion();
+}
+else{
+showResult();
+}
+
+});
+
+// Show Result
+
+function showResult(){
+
+document.getElementById("quizScreen").style.display="none";
+document.getElementById("resultScreen").style.display="block";
+
+document.getElementById("scoreText").innerHTML =
+`${playerName}, Your Score: ${score}/${quiz.length}`;
+
+saveLeaderboard();
+
+displayLeaderboard();
 
 }
 
-// Search Notes
-search.addEventListener("keyup",()=>{
+// Save Score
 
-const value = search.value.toLowerCase();
+function saveLeaderboard(){
 
-const filtered = notes.filter(note =>
-note.text.toLowerCase().includes(value)
+let leaderboard =
+JSON.parse(
+localStorage.getItem("leaderboard")
+) || [];
+
+leaderboard.push({
+name:playerName,
+score:score
+});
+
+leaderboard.sort((a,b)=> b.score-a.score);
+
+localStorage.setItem(
+"leaderboard",
+JSON.stringify(leaderboard)
 );
 
-displayNotes(filtered);
+}
+
+// Display Leaderboard
+
+function displayLeaderboard(){
+
+let leaderboard =
+JSON.parse(
+localStorage.getItem("leaderboard")
+) || [];
+
+const board =
+document.getElementById("leaderboard");
+
+board.innerHTML = "";
+
+leaderboard.forEach((player,index)=>{
+
+board.innerHTML += `
+<div class="player">
+${index + 1}. ${player.name} - ${player.score} Points
+</div>
+`;
 
 });
 
-displayNotes();
+}
